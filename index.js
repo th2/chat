@@ -11,7 +11,7 @@ app.get('/', function(req, res){
 io.on('connection', function(socket){
     socket.broadcast.emit('connected to server');
 
-    console.log(`${socket.id} ${socket.handshake.time} user ${socket.conn.remoteAddress} connected (${JSON.stringify(socket.handshake.headers)})`);
+    console.log(`${socket.id} ${socket.handshake.time} user ${socket.request.connection.remoteAddress} connected (${JSON.stringify(socket.handshake.headers)})`);
     socket.on('disconnect', function(){
       console.log(`${socket.id} user disconnected`);
     });
