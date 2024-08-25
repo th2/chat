@@ -1,0 +1,14 @@
+services:
+  chat:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: chat
+    container_name: chat
+    restart: unless-stopped
+    env_file: .env
+    ports:
+      - ${PORT}:${PORT}
+    volumes:
+      - ./log:/usr/src/app/log
+    command: node server.js

@@ -2,7 +2,6 @@ const app = require('express')();
 const http = require('http').createServer(app);
 const io = require('socket.io')(http);
 const logger = require('./logger');
-const config = require('./config.json');
 
 app.use(logger.visit());
 app.get('/', function(req, res){
@@ -23,6 +22,6 @@ io.on('connection', function(socket){
     });
   });
 
-http.listen(config.port, function(){
-  console.log(`listening on ${config.port}`);
+http.listen(process.env.PORT, function(){
+  console.log(`listening on ${process.env.PORT}`);
 });
