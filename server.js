@@ -1,8 +1,10 @@
 const app = require('express')();
+const cloudflare = require('cloudflare-express');
 const http = require('http').createServer(app);
 const io = require('socket.io')(http);
 const logger = require('./logger');
 
+app.use(cloudflare.restore({update_on_start:true}));
 app.use(logger.visit());
 app.get('/', function(req, res){
   res.sendFile(__dirname + '/index.html');
