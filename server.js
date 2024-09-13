@@ -12,11 +12,11 @@ app.get('/', function(req, res){
 app.use(logger.error());
 
 io.on('connection', function(socket){
-    socket.broadcast.emit('connected to server');
+    io.emit('chat message', `user connected, ${io.engine.clientsCount} current users`);
 
     console.log(`${socket.id} ${socket.handshake.time} user ${socket.request.connection.remoteAddress} connected (${JSON.stringify(socket.handshake.headers)})`);
     socket.on('disconnect', function(){
-      console.log(`${socket.id} user disconnected`);
+      io.emit('chat message', `user disconnected, ${io.engine.clientsCount} current users`);
     });
     socket.on('chat message', function(msg){
       console.log(`${socket.id} message: ${msg}`);
