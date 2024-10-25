@@ -3,7 +3,7 @@
     "version": "0.0.1",
     "description": "socket.io chat app",
     "dependencies": {
-        "cloudflare-express": "^0.0.1",
+        "cloudflare-express": "^1.0.1",
         "express": "^4.21.1",
         "express-winston": "^4.2.0",
         "socket.io": "^4.8.1",
