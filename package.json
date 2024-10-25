@@ -4,7 +4,7 @@
     "description": "socket.io chat app",
     "dependencies": {
         "cloudflare-express": "^0.0.1",
-        "express": "^4.17.1",
+        "express": "^4.21.1",
         "express-winston": "^4.2.0",
         "socket.io": "^4.7.5",
         "winston": "^3.14.2",
